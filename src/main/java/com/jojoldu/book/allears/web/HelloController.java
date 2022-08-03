@@ -1,16 +1,21 @@
 package com.jojoldu.book.allears.web;
 
+import com.jojoldu.book.allears.web.dto.HelloResponseDto;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HelloController {
 
-    @RequestMapping(value ="/hello", method = RequestMethod.GET)
+    @GetMapping("/hello")
     public String hello(){
         return "hello";
+    }
+
+    @GetMapping("/hello/dto")
+    public HelloResponseDto helloDto(@RequestParam("name") String name,
+                                     @RequestParam("amount") int amount)
+    {
+        return new HelloResponseDto(name, amount);
     }
 }
