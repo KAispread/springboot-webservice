@@ -17,7 +17,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class PostRepositoryTest extends TestCase {
 
     @Autowired
-    PostRepository postRepository;
+    PostsRepository postRepository;
 
     @After
     public void cleanup(){
