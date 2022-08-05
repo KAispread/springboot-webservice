@@ -17,6 +17,7 @@ public class PostsService {
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 
+    // 데이터 변경관련 부분이기 때문에 @Transsactional - Transaction 단위로 처리 사용
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto) {
         Posts posts = postsRepository.findById(id).orElseThrow(() ->
